@@ -378,13 +378,13 @@ exports.book_update_post = [
     }
 
     // Data from form is valid. Update the record.
-    Book.findByIdAndUpdate(req.params.id, book, {}, (err, thebook) => {
+    Book.findByIdAndUpdate(req.params.id, book, {}, (err, book) => {
       if (err) {
         return next(err);
       }
 
       // Successful: redirect to book detail page.
-      res.redirect(thebook.url);
+      res.redirect(book.url);
     });
   },
 ];
